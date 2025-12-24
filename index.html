@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arturo Esteva Castillo - Professional Portfolio</title>
+
+  <style>
+    /* Import profesional font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    /* =========================
+       Platinum / Graphite Theme
+       ========================= */
+    :root{
+      --bg-0: #3c3414df;                 /* black */
+      --bg-1: #484422;                 /* graphite */
+      --bg-2: #141414;                 /* dark gray */
+
+      --surface: rgba(18, 18, 18, 0.78);
+      --surface-2: rgba(28, 28, 28, 0.62);
+      --surface-3: rgba(45, 45, 45, 0.45);
+
+      --text: #f3f4f6;                 /* near-white */
+      --muted: #c7c7c7;                /* soft gray */
+      --muted-2: #9ca3af;              /* label gray */
+      --line: rgba(255, 255, 255, 0.10);
+
+      --accent: #f5f5f5;               /* platinum */
+      --accent-2: #a3a3a3;             /* silver */
+
+      --shadow: 0 20px 60px rgba(0,0,0,0.28);
+      --shadow-strong: 0 10px 30px rgba(0,0,0,0.42);
+
+      --radius: 12px;
+      --radius-sm: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 650px at 15% 10%, rgba(255, 255, 255, 0.10), transparent 55%),
+        radial-gradient(900px 520px at 90% 18%, rgba(255, 255, 255, 0.07), transparent 55%),
+        linear-gradient(135deg, var(--bg-0) 0%, var(--bg-1) 45%, var(--bg-2) 100%);
+      color: var(--text);
+      line-height: 1.6;
+      letter-spacing: 0.1px;
+    }
+
+    header {
+      background: rgba(10, 10, 10, 0.78);
+      backdrop-filter: blur(12px);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-strong);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.25s ease, transform 0.25s ease;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .download-btn {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      color: #0a0a0ab3 !important;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: filter 0.25s ease, transform 0.25s ease;
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.434);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 800;
+    }
+
+    .download-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 2rem 2rem;
+    }
+
+    .hero { text-align: center; padding: 4rem 0; }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+      letter-spacing: 0.2px;
+    }
+
+    .hero .title {
+      font-size: 1.25rem;
+      color: #e5e7eb;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.06rem;
+      color: var(--muted);
+      max-width: 850px;
+      margin: 1rem auto;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .contact-info a, .contact-info span {
+      color: var(--muted-2);
+      text-decoration: none;
+      transition: color 0.25s ease;
+      font-weight: 600;
+    }
+
+    .contact-info a:hover { color: var(--accent); }
+
+    section {
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      padding: 3rem;
+      margin: 2rem 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    section[id] { scroll-margin-top: 90px; }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      border-bottom: 2px solid rgba(245, 245, 245, 0.55);
+      padding-bottom: 0.6rem;
+      letter-spacing: 0.2px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-category {
+      background: var(--surface-2);
+      padding: 1.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 4px solid rgba(245, 245, 245, 0.75);
+    }
+
+    .skill-category h3 {
+      color: #f3f4f6;
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+      letter-spacing: 0.2px;
+    }
+
+    .skill-category ul { list-style: none; }
+    .skill-category li { color: var(--muted); padding: 0.3rem 0; font-size: 0.95rem; }
+
+    .experience-item {
+      background: var(--surface-2);
+      padding: 2rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 4px solid rgba(245, 245, 245, 0.75);
+    }
+
+    .experience-item h3 {
+      color: #f3f4f6;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-item .company {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+      font-weight: 650;
+    }
+
+    .experience-item .date {
+      color: var(--muted-2);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .experience-item ul { margin-left: 1.2rem; color: var(--muted); }
+    .experience-item li { margin-bottom: 0.55rem; }
+
+    .education-item {
+      background: var(--surface-2);
+      padding: 1.5rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 4px solid rgba(245, 245, 245, 0.75);
+    }
+
+    .education-item h3 { color: #f3f4f6; font-size: 1.2rem; }
+    .education-item p { color: var(--muted); margin-top: 0.5rem; font-weight: 520; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(10, 10, 10, 0.78);
+      color: var(--muted-2);
+      margin-top: 3rem;
+      border-top: 1px solid var(--line);
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid rgba(245, 245, 245, 0.75);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .hero h1 { font-size: 2rem; }
+      nav { flex-direction: column; gap: 1rem; }
+      section { padding: 2rem 1.5rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">Arturo Esteva</div>
+      <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li>
+          <a href="resume.pdf" class="download-btn" download>⬇ Descargar CV</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Arturo Esteva Castillo</h1>
+      <p class="title">Systems Engineer | Cloud & Network Specialist | Data Science Student</p>
+      <div class="contact-info">
+        <a href="mailto:esteva231190@gmail.com">📧 esteva231190@gmail.com</a>
+        <a href="tel:+19186007296">📱 +1 (918) 600-7296</a>
+        <a href="https://www.linkedin.com/in/ing-arturo-esteva" target="_blank" rel="noreferrer">💼 LinkedIn</a>
+        <a href="https://github.com/ArturoCastillo90" target="_blank" rel="noreferrer">💻 GitHub</a>
+        <span>📍 Denver, Colorado</span>
+      </div>
+    </div>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p style="color: var(--muted); font-size: 1.1rem; line-height: 1.8;">
+        I am a Systems Engineer with solid experience in the design, implementation, and operation of cloud solutions, primarily focused on the telecommunications sector. My expertise ranges from managing 4G/5G network infrastructure to developing automation and data analysis in critical production environments.
+      </p>
+      <p style="color: var(--muted); font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+        I am currently pursuing a Master's degree in Data Science, which expands my capacity to work with data analysis, modeling, and processing in advanced technological environments. I combine technical skills in software development, Python automation, cloud infrastructure management (AWS, Kubernetes, Docker), and network analysis to build efficient, scalable, and secure solutions.
+      </p>
+      <p style="color: var(--muted); font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+        My passion lies at the intersection of modern telecommunications, cloud infrastructure, and data analysis, always seeking to optimize processes, improve system observability, and contribute to the growth of multidisciplinary teams.
+      </p>
+    </section>
+
+    <section id="experience">
+      <h2>Work Experience</h2>
+
+      <div class="experience-item">
+        <h3>System Engineer II</h3>
+        <p class="company">DISH WIRELESS | Denver, Colorado</p>
+        <p class="date">April 2023 – December 2024</p>
+        <ul>
+          <li>Automated and operated monitoring platforms for 5G infrastructure working with Prometheus and Grafana, integrating metrics from network nodes, virtualized functions, and critical microservices.</li>
+          <li>Managed cluster capacity and health by configuring health checks, Horizontal Pod Autoscaler (HPA), and optimizing CPU and memory usage in containerized services.</li>
+          <li>Operated services on AWS (VPCs, ELB, EC2, IAM, S3, CloudWatch, Lambda, RDS, EBS/EFS) and Kubernetes clusters with approximately 24k pods to support monitoring workflows.</li>
+          <li>Developed automation tools in Python for KPI analysis, configuration validation, log parsing, and network function health verification.</li>
+          <li>Executed validation tests for key functionalities such as Registration, Authentication, VoNR, VoWiFi, Network Slicing, and QoS.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <h3>Senior Wireless Engineer</h3>
+        <p class="company">AT&T USA | Walnut Creek, California</p>
+        <p class="date">December 2018 – February 2023</p>
+        <ul>
+          <li>Performed testing, validation, and troubleshooting of 4G LTE and 5G small cell services using Linux environments for log analysis and end-to-end connectivity verification.</li>
+          <li>Diagnosed incidents applying fundamentals of OSI and TCP/IP models, separating issues by layer to identify failures in RF, backhaul, routing, or applications.</li>
+          <li>Developed automation scripts in Python and Bash to analyze network KPIs, process logs, and validate active services and routing in LAN/WAN segments.</li>
+          <li>Used Wireshark, RADCOM, and EXFO with Linux tools to capture and analyze traffic, identifying retransmissions, jitter, and congestion patterns.</li>
+          <li>Managed and validated clusters in Kubernetes and OpenShift on Rocky Linux, verifying node status, pods, services, and network policies.</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <h3>Deployment Management</h3>
+        <p class="company">Ericsson Mexico | Azcapotzalco, CDMX</p>
+        <p class="date">February 2014 – February 2018</p>
+        <ul>
+          <li>Deployed and integrated 3G/4G sites in wireless projects in the US and North America, testing base stations and small cells in stadiums and commercial buildings.</li>
+          <li>Performed detailed analysis of RAN KPIs (accessibility, retainability, mobility, throughput) correlating counters with drive-tests and call traces.</li>
+          <li>Managed and monitored using Ericsson ENM/OSS platforms performing health checks, troubleshooting, and verification of RAN network status.</li>
+          <li>Executed software updates on WCDMA and LTE nodes, license installation, and compatibility validation.</li>
+          <li>Linux administration and automation: used Linux-based tools (moshell, bash, CLI) developing custom scripts in HTML, JavaScript, Shell, and PHP.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>☁️ Cloud & Infrastructure</h3>
+          <ul>
+            <li><strong>Amazon Web Services (AWS):</strong> IAM, Governance, Route 53, VPC, VPC Peering, Site-to-Site VPN, EKS, EC2, ALB/ELB, S3, Lambda, RDS, CloudWatch, CloudFront, AMI</li>
+            <li><strong>Microsoft Azure:</strong> VMs, Azure Functions, Azure SQL DB, Containers, DNS, ExpressRoute, Azure Files, SIEM</li>
+            <li>Docker & Kubernetes</li>
+            <li>VMware (vCenter/ESXi)</li>
+            <li>Linux Administration</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>📊 Data Science & Analytics</h3>
+          <ul>
+            <li>Python: Pandas, Numpy, Sklearn</li>
+            <li>Power BI, Tableau</li>
+            <li>SQL, MongoDB, DynamoDB</li>
+            <li>Data Cleaning & ML</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>🔧 Automation</h3>
+          <ul>
+            <li>Python, Linux-based, Bash, Shell Scripting</li>
+            <li>APIs (Docker, Kubernetes, Grafana)</li>
+            <li>CI/CD Pipelines</li>
+            <li>Infrastructure as Code</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>📡 Networks & Telecommunications</h3>
+          <ul>
+            <li>4G/5G RAN Architecture</li>
+            <li>Routing & Switching (BGP, OSPF)</li>
+            <li>Network Virtualization (NFV)</li>
+            <li>VPN, IPsec, Firewalls</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>📈 Monitoring & Observability</h3>
+          <ul>
+            <li><strong>Metrics:</strong> Prometheus, Grafana, CloudWatch, Zabbix</li>
+            <li><strong>Logs:</strong> CloudTrail, Loki, Datadog Logs</li>
+            <li><strong>Traces:</strong> OpenTelemetry, Datadog APM</li>
+            <li><strong>Network Analysis:</strong> Wireshark, RADCOM</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>🗄️ Databases</h3>
+          <ul>
+            <li><strong>Relational:</strong> SQL, MySQL, Amazon RDS, Amazon Aurora, Amazon Redshift</li>
+            <li><strong>Non-Relational (NoSQL):</strong> DynamoDB, MongoDB</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education & Certifications</h2>
+
+      <div class="education-item">
+        <h3>🎓 Master's in Data Science | Big Data</h3>
+        <p><strong>Universidad Autónoma de Guadalajara (UAG)</strong></p>
+        <p>2025 - Present</p>
+      </div>
+
+      <div class="education-item">
+        <h3>🎓 Systems Engineering | Physical-Mathematical</h3>
+        <p><strong>Instituto Tecnológico de Oaxaca (Istmo)</strong></p>
+        <p>2008 - 2013</p>
+      </div>
+
+      <div class="skill-category" style="margin-top: 2rem;">
+        <h3>📜 Professional Certifications</h3>
+        <ul style="margin-top: 1rem;">
+          <li>✅ AWS Cloud Practitioner</li>
+          <li>✅ Microsoft Azure Fundamentals (AZ-900)</li>
+          <li>✅ Databricks Fundamentals</li>
+          <li>✅ Amazon ECS (KodeKloud)</li>
+          <li>✅ GitLab CI/CD</li>
+          <li>✅ Grafana Loki</li>
+          <li>✅ VMware Virtual Machines</li>
+          <li>✅ Network Virtualization (Mavenir & Samsung)</li>
+          <li>✅ Agentic AI Fundamentals</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Arturo Esteva Castillo. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;">Denver, Colorado | 🇺🇸 English: Full Professional | 🇲🇽 Spanish: Native</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
